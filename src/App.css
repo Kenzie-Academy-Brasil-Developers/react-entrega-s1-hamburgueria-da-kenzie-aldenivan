@@ -45,3 +45,8 @@
 .total {
   font-size: 1.2rem;
 }
+
+.car {
+  display: flex;
+  flex-flow: wrap;
+}

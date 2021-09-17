@@ -1,4 +1,4 @@
-.cardMenu {
+.cardSale {
   margin: 5px;
   width: 160px;
   background-color: chartreuse;
@@ -10,26 +10,15 @@
   align-items: center;
 }
 
-.titleMenu {
+.titleSale {
   font-size: 1.5rem;
 }
 
-.typeMenu {
+.typeSale {
   font-size: 0.9rem;
 }
 
-.priceMenu {
+.priceSale {
   font-size: 0.9rem;
   font-weight: 700;
-}
-
-.buyMenu {
-  width: 80%;
-  font-size: 1.2rem;
-  font-weight: 700;
-  border-radius: 10px;
-  border: none;
-  background-color: aquamarine;
-  padding: 10px;
-  margin-bottom: 10px;
 }

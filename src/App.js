@@ -1,8 +1,10 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuContainer from "./components/MenuContainer";
 import Products from "./components/Products";
 import FilterProducts from "./components/FilterProducts";
+import MenuCar from "./components/MenuCar";
+import CurrentCart from "./components/CurrentCart";
 
 function App() {
   const [products, setProducts] = useState([
@@ -24,11 +26,31 @@ function App() {
   const [productInput, setProductInput] = useState("");
 
   function showResults(productInput) {
-    console.log(productInput);
+    setFilteredProducts(
+      products.filter(
+        (item) =>
+          item.name === productInput ||
+          item.category === productInput ||
+          item.price === Number(productInput)
+      )
+    );
   }
 
+  useEffect(() => {
+    if (currentSale.length > 0) {
+      setCartTotal(currentSale.reduce((acc, { price }) => acc + price, 0));
+    }
+  }, [currentSale]);
+
   function handleClick(productId) {
-    console.log("oi");
+    if (currentSale.includes(currentSale.id === productId)) {
+      console.log("tem");
+    }
+    let request = products.find((item) => item.id === productId);
+    {
+      !currentSale.includes(request) &&
+        setCurrentSale([...currentSale, request]);
+    }
   }
 
   return (
@@ -40,10 +62,25 @@ function App() {
           showResults={showResults}
         />
         <div className="menu">
-          <MenuContainer products={products} />
-          <Products handleClick={handleClick} />
+          {filteredProducts.length < 1 ? (
+            <MenuContainer
+              products={products}
+              currentSale={currentSale}
+              handleClick={handleClick}
+            />
+          ) : (
+            <MenuContainer
+              products={filteredProducts}
+              handleClick={handleClick}
+            />
+          )}
+          <Products />
         </div>
-        <h3 className="total">Subtotal - {cartTotal} R$</h3>
+        <h3 className="total">Subtotal - {cartTotal.toFixed(2)} R$</h3>
+        <div className="car">
+          <MenuCar currentSale={currentSale} />
+          <CurrentCart />
+        </div>
       </div>
     </div>
   );

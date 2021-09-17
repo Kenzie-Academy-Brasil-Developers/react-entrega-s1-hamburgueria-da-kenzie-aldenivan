@@ -1,19 +1,18 @@
 import "./styles.css";
 
 function Products({ products, handleClick }) {
-  console.log(products);
   return (
     <>
-      {products ? (
+      {products && (
         <div className="cardMenu">
-          <h1 className="title">{products.name}</h1>
-          <p className="type">Categoria - {products.category}</p>
-          <p className="price">Preço - {products.price}</p>
-          <button onClick={() => handleClick(products.id)} className="buy">
+          <h1 className="titleMenu">{products.name}</h1>
+          <p className="typeMenu">Categoria - {products.category}</p>
+          <p className="priceMenu">Preço - {products.price}</p>
+          <button onClick={() => handleClick(products.id)} className="buyMenu">
             Adicionar
           </button>
         </div>
-      ) : undefined}
+      )}
     </>
   );
 }
