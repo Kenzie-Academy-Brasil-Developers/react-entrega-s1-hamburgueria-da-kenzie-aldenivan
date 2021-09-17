@@ -56,11 +56,13 @@ function App() {
   return (
     <div className="App">
       <div className="App-header">
-        <FilterProducts
-          productInput={productInput}
-          setProductInput={setProductInput}
-          showResults={showResults}
-        />
+        <div className="filter">
+          <FilterProducts
+            productInput={productInput}
+            setProductInput={setProductInput}
+            showResults={showResults}
+          />
+        </div>
         <div className="menu">
           {filteredProducts.length < 1 ? (
             <MenuContainer
