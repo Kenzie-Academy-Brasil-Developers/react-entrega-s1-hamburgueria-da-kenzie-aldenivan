@@ -7,7 +7,9 @@ function FilterProducts({ productInput, setProductInput, showResults }) {
         type="text"
         onChange={(event) => setProductInput(event.target.value)}
       />
-      <button onClick={() => showResults(productInput)}>Pesquisar</button>
+      <button onClick={() => showResults(productInput)} className="search">
+        Pesquisar
+      </button>
     </div>
   );
 }
